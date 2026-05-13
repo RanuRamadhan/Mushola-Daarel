@@ -1,1564 +1,2304 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al-Ikhlas Mosque — Rumah Ibadah & Komunitas</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mushola Daarel Hidayah</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  :root {
-    --green: #1a5c3a;
-    --green-mid: #2e7d52;
-    --green-light: #4caf7d;
-    --gold: #c9972a;
-    --gold-light: #e8b84b;
-    --cream: #fdf8f0;
-    --cream-dark: #f5ede0;
-    --dark: #1a1a1a;
-    --text: #2d2d2d;
-    --text-muted: #6b6b6b;
-    --white: #ffffff;
-  }
+      :root {
+        --green: #1a5c3a;
+        --green-mid: #2e7d52;
+        --green-light: #4caf7d;
+        --gold: #c9972a;
+        --gold-light: #e8b84b;
+        --cream: #fdf8f0;
+        --cream-dark: #f5ede0;
+        --dark: #1a1a1a;
+        --text: #2d2d2d;
+        --text-muted: #6b6b6b;
+        --white: #ffffff;
+      }
 
-  html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-  body {
-    font-family: 'Outfit', sans-serif;
-    color: var(--text);
-    background: var(--white);
-    overflow-x: hidden;
-  }
+      body {
+        font-family: "Outfit", sans-serif;
+        color: var(--text);
+        background: var(--white);
+        overflow-x: hidden;
+      }
 
-  /* ========== NAVBAR ========== */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(26,92,58,0.1);
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 72px;
-    transition: box-shadow 0.3s;
-  }
-  nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+      /* ========== NAVBAR ========== */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(26, 92, 58, 0.1);
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        transition: box-shadow 0.3s;
+      }
+      nav.scrolled {
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
 
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-  .logo-icon {
-    width: 44px; height: 44px;
-    background: var(--green);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .logo-icon svg { width: 26px; height: 26px; fill: var(--gold-light); }
-  .logo-text { line-height: 1.1; }
-  .logo-text span:first-child {
-    display: block;
-    font-size: 17px; font-weight: 700;
-    color: var(--green);
-    letter-spacing: -0.3px;
-  }
-  .logo-text span:last-child {
-    display: block;
-    font-size: 11px; font-weight: 400;
-    color: var(--text-muted);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+      .logo-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--green);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-icon svg {
+        width: 26px;
+        height: 26px;
+        fill: var(--gold-light);
+      }
+      .logo-text {
+        line-height: 1.1;
+      }
+      .logo-text span:first-child {
+        display: block;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--green);
+        letter-spacing: -0.3px;
+      }
+      .logo-text span:last-child {
+        display: block;
+        font-size: 11px;
+        font-weight: 400;
+        color: var(--text-muted);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
 
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-  .nav-links a {
-    text-decoration: none;
-    font-size: 14px; font-weight: 500;
-    color: var(--text);
-    transition: color 0.2s;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; left: 0; right: 0;
-    height: 2px;
-    background: var(--green);
-    transform: scaleX(0);
-    transition: transform 0.2s;
-  }
-  .nav-links a:hover { color: var(--green); }
-  .nav-links a:hover::after { transform: scaleX(1); }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text);
+        transition: color 0.2s;
+        position: relative;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--green);
+        transform: scaleX(0);
+        transition: transform 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--green);
+      }
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+      }
 
-  .btn-donate {
-    background: var(--green);
-    color: white !important;
-    padding: 10px 22px;
-    border-radius: 8px;
-    font-weight: 600 !important;
-    transition: background 0.2s !important;
-  }
-  .btn-donate::after { display: none !important; }
-  .btn-donate:hover { background: var(--green-mid) !important; color: white !important; }
+      .btn-donate {
+        background: var(--green);
+        color: white !important;
+        padding: 10px 22px;
+        border-radius: 8px;
+        font-weight: 600 !important;
+        transition: background 0.2s !important;
+      }
+      .btn-donate::after {
+        display: none !important;
+      }
+      .btn-donate:hover {
+        background: var(--green-mid) !important;
+        color: white !important;
+      }
 
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-  }
-  .hamburger span {
-    display: block; width: 24px; height: 2px;
-    background: var(--dark);
-    transition: all 0.3s;
-  }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--dark);
+        transition: all 0.3s;
+      }
 
-  /* ========== HERO ========== */
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0d3320 0%, #1a5c3a 50%, #0d3320 100%);
-    position: relative;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
+      /* ========== HERO ========== */
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #0d3320 0%,
+          #1a5c3a 50%,
+          #0d3320 100%
+        );
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
 
-  .hero-pattern {
-    position: absolute;
-    inset: 0;
-    opacity: 0.07;
-    background-image:
-      repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(201,151,42,0.5) 35px, rgba(201,151,42,0.5) 36px),
-      repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(201,151,42,0.5) 35px, rgba(201,151,42,0.5) 36px);
-  }
+      .hero-pattern {
+        position: absolute;
+        inset: 0;
+        opacity: 0.07;
+        background-image:
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            rgba(201, 151, 42, 0.5) 35px,
+            rgba(201, 151, 42, 0.5) 36px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 35px,
+            rgba(201, 151, 42, 0.5) 35px,
+            rgba(201, 151, 42, 0.5) 36px
+          );
+      }
 
-  .hero-dome {
-    position: absolute;
-    right: -5%;
-    bottom: 0;
-    width: 55%;
-    max-width: 700px;
-    opacity: 0.12;
-  }
+      .hero-dome {
+        position: absolute;
+        right: -5%;
+        bottom: 0;
+        width: 55%;
+        max-width: 700px;
+        opacity: 0.12;
+      }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 120px 5% 80px;
-    max-width: 650px;
-  }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 120px 5% 80px;
+        max-width: 650px;
+      }
 
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(201,151,42,0.2);
-    border: 1px solid rgba(201,151,42,0.4);
-    color: var(--gold-light);
-    padding: 6px 16px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    margin-bottom: 24px;
-  }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(201, 151, 42, 0.2);
+        border: 1px solid rgba(201, 151, 42, 0.4);
+        color: var(--gold-light);
+        padding: 6px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin-bottom: 24px;
+      }
 
-  .hero-arabic {
-    font-family: 'Amiri', serif;
-    font-size: clamp(28px, 5vw, 48px);
-    color: var(--gold-light);
-    line-height: 1.4;
-    margin-bottom: 12px;
-    display: block;
-    direction: rtl;
-  }
+      .hero-arabic {
+        font-family: "Amiri", serif;
+        font-size: clamp(28px, 5vw, 48px);
+        color: var(--gold-light);
+        line-height: 1.4;
+        margin-bottom: 12px;
+        display: block;
+        direction: rtl;
+      }
 
-  .hero h1 {
-    font-size: clamp(32px, 5vw, 58px);
-    font-weight: 700;
-    color: white;
-    line-height: 1.15;
-    letter-spacing: -1px;
-    margin-bottom: 20px;
-  }
+      .hero h1 {
+        font-size: clamp(32px, 5vw, 58px);
+        font-weight: 700;
+        color: white;
+        line-height: 1.15;
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+      }
 
-  .hero p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.7;
-    margin-bottom: 40px;
-    max-width: 480px;
-  }
+      .hero p {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.7;
+        margin-bottom: 40px;
+        max-width: 480px;
+      }
 
-  .hero-btns {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
 
-  .btn-primary {
-    background: var(--gold);
-    color: var(--dark);
-    padding: 14px 32px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.2s;
-    letter-spacing: 0.3px;
-  }
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(201,151,42,0.4);
-  }
+      .btn-primary {
+        background: var(--gold);
+        color: var(--dark);
+        padding: 14px 32px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration: none;
+        transition: all 0.2s;
+        letter-spacing: 0.3px;
+      }
+      .btn-primary:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(201, 151, 42, 0.4);
+      }
 
-  .btn-secondary {
-    background: transparent;
-    color: white;
-    padding: 14px 32px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    border: 1.5px solid rgba(255,255,255,0.4);
-    transition: all 0.2s;
-  }
-  .btn-secondary:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: white;
-  }
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        padding: 14px 32px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+        border: 1.5px solid rgba(255, 255, 255, 0.4);
+        transition: all 0.2s;
+      }
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: white;
+      }
 
-  /* ========== PRAYER TIMES STRIP ========== */
-  .prayer-strip {
-    background: var(--gold);
-    padding: 18px 5%;
-  }
-  .prayer-strip-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .prayer-label {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: rgba(26,26,26,0.6);
-  }
-  .prayer-times {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-  .prayer-time-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .prayer-time-item .name {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--dark);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .prayer-time-item .time {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--dark);
-  }
-  .prayer-divider {
-    width: 1px; height: 30px;
-    background: rgba(26,26,26,0.2);
-  }
+      /* ========== PRAYER TIMES STRIP ========== */
+      .prayer-strip {
+        background: var(--gold);
+        padding: 18px 5%;
+      }
+      .prayer-strip-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .prayer-label {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: rgba(26, 26, 26, 0.6);
+      }
+      .prayer-times {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+      .prayer-time-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .prayer-time-item .name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--dark);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .prayer-time-item .time {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .prayer-divider {
+        width: 1px;
+        height: 30px;
+        background: rgba(26, 26, 26, 0.2);
+      }
 
-  /* ========== SECTION COMMON ========== */
-  section { padding: 90px 5%; }
+      /* ========== SECTION COMMON ========== */
+      section {
+        padding: 90px 5%;
+      }
 
-  .section-tag {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 12px;
-    position: relative;
-    padding-left: 28px;
-  }
-  .section-tag::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 50%;
-    transform: translateY(-50%);
-    width: 18px; height: 2px;
-    background: var(--gold);
-  }
+      .section-tag {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--green);
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 28px;
+      }
+      .section-tag::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 2px;
+        background: var(--gold);
+      }
 
-  .section-title {
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 700;
-    color: var(--dark);
-    line-height: 1.2;
-    letter-spacing: -0.5px;
-  }
-  .section-title span { color: var(--green); }
+      .section-title {
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+      }
+      .section-title span {
+        color: var(--green);
+      }
 
-  .section-desc {
-    font-size: 16px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    max-width: 540px;
-    margin-top: 14px;
-  }
+      .section-desc {
+        font-size: 16px;
+        color: var(--text-muted);
+        line-height: 1.7;
+        max-width: 540px;
+        margin-top: 14px;
+      }
 
-  /* ========== ABOUT ========== */
-  .about { background: var(--cream); }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .about-img-wrap {
-    position: relative;
-  }
-  .about-img-main {
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    background: var(--green);
-  }
-  .about-img-main svg {
-    width: 100%; height: 100%;
-  }
-  .about-stats {
-    position: absolute;
-    bottom: -24px;
-    right: -24px;
-    background: var(--gold);
-    border-radius: 16px;
-    padding: 22px 28px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  .stat-item { text-align: center; }
-  .stat-num {
-    display: block;
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--dark);
-    line-height: 1;
-  }
-  .stat-lbl {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(26,26,26,0.65);
-    margin-top: 4px;
-  }
-  .about-content { padding-right: 20px; }
-  .about-features {
-    margin-top: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  .feature-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .feature-icon {
-    width: 44px; height: 44px;
-    background: rgba(26,92,58,0.1);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .feature-icon svg { width: 22px; height: 22px; fill: var(--green); }
-  .feature-text strong { font-size: 15px; font-weight: 600; color: var(--dark); }
-  .feature-text p { font-size: 14px; color: var(--text-muted); margin-top: 3px; line-height: 1.5; }
+      /* ========== ABOUT ========== */
+      .about {
+        background: var(--cream);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .about-img-wrap {
+        position: relative;
+      }
+      .about-img-main {
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        background: var(--green);
+      }
+      .about-img-main svg {
+        width: 100%;
+        height: 100%;
+      }
+      .about-stats {
+        position: absolute;
+        bottom: -24px;
+        right: -24px;
+        background: var(--gold);
+        border-radius: 16px;
+        padding: 22px 28px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .stat-item {
+        text-align: center;
+      }
+      .stat-num {
+        display: block;
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--dark);
+        line-height: 1;
+      }
+      .stat-lbl {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(26, 26, 26, 0.65);
+        margin-top: 4px;
+      }
+      .about-content {
+        padding-right: 20px;
+      }
+      .about-features {
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .feature-item {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .feature-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(26, 92, 58, 0.1);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .feature-icon svg {
+        width: 22px;
+        height: 22px;
+        fill: var(--green);
+      }
+      .feature-text strong {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--dark);
+      }
+      .feature-text p {
+        font-size: 14px;
+        color: var(--text-muted);
+        margin-top: 3px;
+        line-height: 1.5;
+      }
 
-  /* ========== SERVICES ========== */
-  .services { background: white; }
-  .services-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 52px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .service-card {
-    background: var(--cream);
-    border-radius: 20px;
-    padding: 36px 30px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-  }
-  .service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(26,92,58,0.12);
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: var(--green);
-    transform: scaleX(0);
-    transition: transform 0.3s;
-  }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-card-icon {
-    width: 60px; height: 60px;
-    background: var(--green);
-    border-radius: 16px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 22px;
-  }
-  .service-card-icon svg { width: 30px; height: 30px; fill: white; }
-  .service-card h3 {
-    font-size: 18px; font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 10px;
-  }
-  .service-card p {
-    font-size: 14px; color: var(--text-muted);
-    line-height: 1.6;
-  }
-  .service-card-num {
-    position: absolute;
-    right: 24px; top: 24px;
-    font-size: 56px; font-weight: 800;
-    color: rgba(26,92,58,0.06);
-    line-height: 1;
-  }
+      /* ========== SERVICES ========== */
+      .services {
+        background: white;
+      }
+      .services-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 52px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .service-card {
+        background: var(--cream);
+        border-radius: 20px;
+        padding: 36px 30px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        cursor: pointer;
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 50px rgba(26, 92, 58, 0.12);
+      }
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--green);
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
+      .service-card:hover::before {
+        transform: scaleX(1);
+      }
+      .service-card-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--green);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 22px;
+      }
+      .service-card-icon svg {
+        width: 30px;
+        height: 30px;
+        fill: white;
+      }
+      .service-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 10px;
+      }
+      .service-card p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+      .service-card-num {
+        position: absolute;
+        right: 24px;
+        top: 24px;
+        font-size: 56px;
+        font-weight: 800;
+        color: rgba(26, 92, 58, 0.06);
+        line-height: 1;
+      }
 
-  /* ========== EVENTS ========== */
-  .events { background: var(--green); }
-  .events .section-tag { color: var(--gold-light); }
-  .events .section-tag::before { background: var(--gold-light); }
-  .events .section-title { color: white; }
-  .events .section-title span { color: var(--gold-light); }
-  .events .section-desc { color: rgba(255,255,255,0.65); }
+      /* ========== EVENTS ========== */
+      .events {
+        background: var(--green);
+      }
+      .events .section-tag {
+        color: var(--gold-light);
+      }
+      .events .section-tag::before {
+        background: var(--gold-light);
+      }
+      .events .section-title {
+        color: white;
+      }
+      .events .section-title span {
+        color: var(--gold-light);
+      }
+      .events .section-desc {
+        color: rgba(255, 255, 255, 0.65);
+      }
 
-  .events-header {
-    max-width: 1200px;
-    margin: 0 auto 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-  .events-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .event-card {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s, background 0.3s;
-  }
-  .event-card:hover {
-    transform: translateY(-4px);
-    background: rgba(255,255,255,0.14);
-  }
-  .event-img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: rgba(255,255,255,0.05);
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-    position: relative;
-  }
-  .event-img svg { width: 80%; height: 80%; opacity: 0.4; fill: var(--gold-light); }
-  .event-date-badge {
-    position: absolute;
-    top: 14px; left: 14px;
-    background: var(--gold);
-    color: var(--dark);
-    border-radius: 8px;
-    padding: 6px 12px;
-    text-align: center;
-    line-height: 1.1;
-  }
-  .event-date-badge .day { font-size: 22px; font-weight: 800; display: block; }
-  .event-date-badge .month { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-  .event-info { padding: 22px; }
-  .event-meta {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 10px;
-  }
-  .event-meta span {
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
-    display: flex; align-items: center; gap: 5px;
-  }
-  .event-info h3 {
-    font-size: 16px; font-weight: 700;
-    color: white;
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-  .event-info p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; }
-  .btn-event {
-    display: inline-block;
-    margin-top: 14px;
-    font-size: 13px; font-weight: 600;
-    color: var(--gold-light);
-    text-decoration: none;
-    letter-spacing: 0.3px;
-  }
-  .btn-event:hover { text-decoration: underline; }
+      .events-header {
+        max-width: 1200px;
+        margin: 0 auto 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .events-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .event-card {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          background 0.3s;
+      }
+      .event-card:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.14);
+      }
+      .event-img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+      .event-img svg {
+        width: 80%;
+        height: 80%;
+        opacity: 0.4;
+        fill: var(--gold-light);
+      }
+      .event-date-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: var(--gold);
+        color: var(--dark);
+        border-radius: 8px;
+        padding: 6px 12px;
+        text-align: center;
+        line-height: 1.1;
+      }
+      .event-date-badge .day {
+        font-size: 22px;
+        font-weight: 800;
+        display: block;
+      }
+      .event-date-badge .month {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .event-info {
+        padding: 22px;
+      }
+      .event-meta {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 10px;
+      }
+      .event-meta span {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .event-info h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+      .event-info p {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.5;
+      }
+      .btn-event {
+        display: inline-block;
+        margin-top: 14px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--gold-light);
+        text-decoration: none;
+        letter-spacing: 0.3px;
+      }
+      .btn-event:hover {
+        text-decoration: underline;
+      }
 
-  /* ========== DONATION ========== */
-  .donation { background: var(--cream); }
-  .donation-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .donation-header { margin-bottom: 48px; }
-  .donation-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .donation-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .donation-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 50px rgba(26,92,58,0.14);
-  }
-  .donation-img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: var(--green-mid);
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .donation-img svg { width: 70%; height: 70%; fill: rgba(255,255,255,0.2); }
-  .donation-body { padding: 24px; }
-  .donation-body h3 {
-    font-size: 17px; font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 10px;
-  }
-  .donation-body p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
-  .donation-progress {
-    margin-bottom: 10px;
-  }
-  .progress-bar {
-    width: 100%; height: 6px;
-    background: var(--cream-dark);
-    border-radius: 99px;
-    overflow: hidden;
-    margin-bottom: 10px;
-  }
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--green), var(--green-light));
-    border-radius: 99px;
-  }
-  .progress-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-  }
-  .progress-labels .raised { font-weight: 700; color: var(--green); }
-  .progress-labels .goal { color: var(--text-muted); }
-  .btn-donate-card {
-    display: block;
-    text-align: center;
-    background: var(--green);
-    color: white;
-    padding: 13px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 14px;
-    text-decoration: none;
-    margin-top: 18px;
-    transition: background 0.2s;
-  }
-  .btn-donate-card:hover { background: var(--green-mid); }
+      /* ========== DONATION ========== */
+      .donation {
+        background: var(--cream);
+      }
+      .donation-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .donation-header {
+        margin-bottom: 48px;
+      }
+      .donation-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .donation-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .donation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 50px rgba(26, 92, 58, 0.14);
+      }
+      .donation-img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: var(--green-mid);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .donation-img svg {
+        width: 70%;
+        height: 70%;
+        fill: rgba(255, 255, 255, 0.2);
+      }
+      .donation-body {
+        padding: 24px;
+      }
+      .donation-body h3 {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 10px;
+      }
+      .donation-body p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .donation-progress {
+        margin-bottom: 10px;
+      }
+      .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: var(--cream-dark);
+        border-radius: 99px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--green), var(--green-light));
+        border-radius: 99px;
+      }
+      .progress-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+      }
+      .progress-labels .raised {
+        font-weight: 700;
+        color: var(--green);
+      }
+      .progress-labels .goal {
+        color: var(--text-muted);
+      }
+      .btn-donate-card {
+        display: block;
+        text-align: center;
+        background: var(--green);
+        color: white;
+        padding: 13px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+        margin-top: 18px;
+        transition: background 0.2s;
+      }
+      .btn-donate-card:hover {
+        background: var(--green-mid);
+      }
 
-  /* ========== GALLERY ========== */
-  .gallery { background: white; }
-  .gallery-inner { max-width: 1200px; margin: 0 auto; }
-  .gallery-header { margin-bottom: 48px; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto;
-    gap: 16px;
-  }
-  .gallery-item {
-    border-radius: 14px;
-    overflow: hidden;
-    aspect-ratio: 1;
-    background: var(--cream-dark);
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  .gallery-item:hover { transform: scale(0.98); }
-  .gallery-item:first-child {
-    grid-column: span 2;
-    grid-row: span 2;
-    aspect-ratio: auto;
-  }
-  .gallery-item svg { width: 40%; height: 40%; fill: rgba(26,92,58,0.2); }
-  .gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(26,92,58,0);
-    transition: background 0.3s;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .gallery-item:hover .gallery-overlay { background: rgba(26,92,58,0.5); }
-  .gallery-overlay-icon {
-    opacity: 0;
-    transition: opacity 0.3s;
-    color: white;
-    font-size: 32px;
-  }
-  .gallery-item:hover .gallery-overlay-icon { opacity: 1; }
+      /* ========== GALLERY ========== */
+      .gallery {
+        background: white;
+      }
+      .gallery-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .gallery-header {
+        margin-bottom: 48px;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto auto;
+        gap: 16px;
+      }
+      .gallery-item {
+        border-radius: 14px;
+        overflow: hidden;
+        aspect-ratio: 1;
+        background: var(--cream-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      .gallery-item:hover {
+        transform: scale(0.98);
+      }
+      .gallery-item:first-child {
+        grid-column: span 2;
+        grid-row: span 2;
+        aspect-ratio: auto;
+      }
+      .gallery-item svg {
+        width: 40%;
+        height: 40%;
+        fill: rgba(26, 92, 58, 0.2);
+      }
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(26, 92, 58, 0);
+        transition: background 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .gallery-item:hover .gallery-overlay {
+        background: rgba(26, 92, 58, 0.5);
+      }
+      .gallery-overlay-icon {
+        opacity: 0;
+        transition: opacity 0.3s;
+        color: white;
+        font-size: 32px;
+      }
+      .gallery-item:hover .gallery-overlay-icon {
+        opacity: 1;
+      }
 
-  /* ========== CONTACT ========== */
-  .contact { background: var(--cream); }
-  .contact-inner {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 70px;
-    align-items: start;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .contact-info-items {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    margin-top: 36px;
-  }
-  .contact-info-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .contact-info-icon {
-    width: 48px; height: 48px;
-    background: var(--green);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .contact-info-icon svg { width: 22px; height: 22px; fill: white; }
-  .contact-info-text strong { font-size: 14px; font-weight: 600; color: var(--dark); }
-  .contact-info-text p { font-size: 14px; color: var(--text-muted); margin-top: 3px; line-height: 1.5; }
+      /* ========== CONTACT ========== */
+      .contact {
+        background: var(--cream);
+      }
+      .contact-inner {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 70px;
+        align-items: start;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .contact-info-items {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        margin-top: 36px;
+      }
+      .contact-info-item {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .contact-info-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--green);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .contact-info-icon svg {
+        width: 22px;
+        height: 22px;
+        fill: white;
+      }
+      .contact-info-text strong {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--dark);
+      }
+      .contact-info-text p {
+        font-size: 14px;
+        color: var(--text-muted);
+        margin-top: 3px;
+        line-height: 1.5;
+      }
 
-  .contact-form {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
-  }
-  .contact-form h3 {
-    font-size: 22px; font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 28px;
-  }
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .form-group { margin-bottom: 16px; }
-  .form-group label {
-    display: block;
-    font-size: 13px; font-weight: 600;
-    color: var(--text);
-    margin-bottom: 8px;
-    letter-spacing: 0.2px;
-  }
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1.5px solid rgba(0,0,0,0.1);
-    border-radius: 10px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 14px;
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s;
-    background: var(--cream);
-  }
-  .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: var(--green);
-    background: white;
-  }
-  .form-group textarea { resize: vertical; min-height: 110px; }
-  .btn-send {
-    width: 100%;
-    background: var(--green);
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 15px; font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    margin-top: 8px;
-    letter-spacing: 0.3px;
-  }
-  .btn-send:hover { background: var(--green-mid); transform: translateY(-1px); }
+      .contact-form {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+      }
+      .contact-form h3 {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 28px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 8px;
+        letter-spacing: 0.2px;
+      }
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        font-family: "Outfit", sans-serif;
+        font-size: 14px;
+        color: var(--text);
+        outline: none;
+        transition: border-color 0.2s;
+        background: var(--cream);
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: var(--green);
+        background: white;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 110px;
+      }
+      .btn-send {
+        width: 100%;
+        background: var(--green);
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        font-family: "Outfit", sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        margin-top: 8px;
+        letter-spacing: 0.3px;
+      }
+      .btn-send:hover {
+        background: var(--green-mid);
+        transform: translateY(-1px);
+      }
 
-  /* ========== FOOTER ========== */
-  footer {
-    background: #0d2b1c;
-    color: rgba(255,255,255,0.7);
-    padding: 70px 5% 0;
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-    gap: 48px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-bottom: 56px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .footer-brand .logo-text span:first-child { color: white; }
-  .footer-brand .logo-text span:last-child { color: rgba(255,255,255,0.4); }
-  .footer-brand p {
-    font-size: 14px; line-height: 1.7;
-    color: rgba(255,255,255,0.5);
-    margin-top: 18px;
-  }
-  .footer-socials {
-    display: flex;
-    gap: 10px;
-    margin-top: 22px;
-  }
-  .social-btn {
-    width: 38px; height: 38px;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.08);
-    display: flex; align-items: center; justify-content: center;
-    text-decoration: none;
-    transition: background 0.2s;
-    color: rgba(255,255,255,0.6);
-    font-size: 16px;
-  }
-  .social-btn:hover { background: var(--green); color: white; }
-  .footer-col h4 {
-    font-size: 14px; font-weight: 700;
-    color: white;
-    letter-spacing: 0.5px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--gold);
-    display: inline-block;
-  }
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 12px; }
-  .footer-col ul li a {
-    text-decoration: none;
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    transition: color 0.2s;
-  }
-  .footer-col ul li a:hover { color: var(--gold-light); }
-  .footer-info-item {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 14px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    align-items: flex-start;
-  }
-  .footer-info-item svg { width: 16px; height: 16px; fill: var(--gold); flex-shrink: 0; margin-top: 2px; }
-  .newsletter-input-wrap {
-    display: flex;
-    margin-top: 16px;
-    gap: 0;
-  }
-  .newsletter-input-wrap input {
-    flex: 1;
-    padding: 11px 14px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-right: none;
-    border-radius: 8px 0 0 8px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 13px;
-    color: white;
-    outline: none;
-  }
-  .newsletter-input-wrap input::placeholder { color: rgba(255,255,255,0.3); }
-  .newsletter-input-wrap button {
-    padding: 11px 18px;
-    background: var(--gold);
-    color: var(--dark);
-    border: none;
-    border-radius: 0 8px 8px 0;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .newsletter-input-wrap button:hover { background: var(--gold-light); }
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 22px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    color: rgba(255,255,255,0.3);
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .footer-bottom a { color: var(--gold-light); text-decoration: none; }
+      /* ========== FOOTER ========== */
+      footer {
+        background: #0d2b1c;
+        color: rgba(255, 255, 255, 0.7);
+        padding: 70px 5% 0;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+        gap: 48px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 56px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .footer-brand .logo-text span:first-child {
+        color: white;
+      }
+      .footer-brand .logo-text span:last-child {
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .footer-brand p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 18px;
+      }
+      .footer-socials {
+        display: flex;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .social-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: background 0.2s;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 16px;
+      }
+      .social-btn:hover {
+        background: var(--green);
+        color: white;
+      }
+      .footer-col h4 {
+        font-size: 14px;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 0.5px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--gold);
+        display: inline-block;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a {
+        text-decoration: none;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.55);
+        transition: color 0.2s;
+      }
+      .footer-col ul li a:hover {
+        color: var(--gold-light);
+      }
+      .footer-info-item {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 14px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.55);
+        align-items: flex-start;
+      }
+      .footer-info-item svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--gold);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .newsletter-input-wrap {
+        display: flex;
+        margin-top: 16px;
+        gap: 0;
+      }
+      .newsletter-input-wrap input {
+        flex: 1;
+        padding: 11px 14px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-right: none;
+        border-radius: 8px 0 0 8px;
+        font-family: "Outfit", sans-serif;
+        font-size: 13px;
+        color: white;
+        outline: none;
+      }
+      .newsletter-input-wrap input::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .newsletter-input-wrap button {
+        padding: 11px 18px;
+        background: var(--gold);
+        color: var(--dark);
+        border: none;
+        border-radius: 0 8px 8px 0;
+        font-family: "Outfit", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .newsletter-input-wrap button:hover {
+        background: var(--gold-light);
+      }
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 22px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.3);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .footer-bottom a {
+        color: var(--gold-light);
+        text-decoration: none;
+      }
 
-  /* ========== BACK TO TOP ========== */
-  .back-to-top {
-    position: fixed;
-    bottom: 30px; right: 30px;
-    width: 48px; height: 48px;
-    background: var(--green);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 20px rgba(26,92,58,0.4);
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s;
-    z-index: 999;
-  }
-  .back-to-top.visible { opacity: 1; transform: translateY(0); }
-  .back-to-top:hover { background: var(--green-mid); }
-  .back-to-top svg { width: 20px; height: 20px; fill: white; }
+      /* ========== BACK TO TOP ========== */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 48px;
+        height: 48px;
+        background: var(--green);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(26, 92, 58, 0.4);
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s;
+        z-index: 999;
+      }
+      .back-to-top.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .back-to-top:hover {
+        background: var(--green-mid);
+      }
+      .back-to-top svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+      }
 
-  /* ========== RESPONSIVE ========== */
-  @media (max-width: 1024px) {
-    .services-grid,
-    .events-grid,
-    .donation-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-    .gallery-item:first-child { grid-column: span 2; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .about-grid { gap: 40px; }
-  }
+      /* ========== RESPONSIVE ========== */
+      @media (max-width: 1024px) {
+        .services-grid,
+        .events-grid,
+        .donation-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .gallery-item:first-child {
+          grid-column: span 2;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .about-grid {
+          gap: 40px;
+        }
+      }
 
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    .nav-links.open {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 72px; left: 0; right: 0;
-      background: white;
-      padding: 20px 5%;
-      gap: 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    .nav-links.open li { border-bottom: 1px solid rgba(0,0,0,0.06); }
-    .nav-links.open a { display: block; padding: 14px 0; }
-    .nav-links.open a::after { display: none; }
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .nav-links.open {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 72px;
+          left: 0;
+          right: 0;
+          background: white;
+          padding: 20px 5%;
+          gap: 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links.open li {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .nav-links.open a {
+          display: block;
+          padding: 14px 0;
+        }
+        .nav-links.open a::after {
+          display: none;
+        }
 
-    .about-grid { grid-template-columns: 1fr; }
-    .about-stats { position: relative; bottom: auto; right: auto; margin-top: 20px; }
-    .about-content { padding-right: 0; }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-stats {
+          position: relative;
+          bottom: auto;
+          right: auto;
+          margin-top: 20px;
+        }
+        .about-content {
+          padding-right: 0;
+        }
 
-    .services-grid,
-    .events-grid,
-    .donation-grid { grid-template-columns: 1fr; }
+        .services-grid,
+        .events-grid,
+        .donation-grid {
+          grid-template-columns: 1fr;
+        }
 
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-item:first-child { grid-column: span 2; }
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .gallery-item:first-child {
+          grid-column: span 2;
+        }
 
-    .contact-inner { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
+        .contact-inner {
+          grid-template-columns: 1fr;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
 
-    .footer-grid { grid-template-columns: 1fr 1fr; }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
 
-    .prayer-times { gap: 16px; }
-    .prayer-divider { display: none; }
+        .prayer-times {
+          gap: 16px;
+        }
+        .prayer-divider {
+          display: none;
+        }
 
-    .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .events-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-  }
+        .services-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+        }
+        .events-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+        }
+      }
 
-  @media (max-width: 480px) {
-    section { padding: 60px 5%; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
-    .gallery-item:first-child { grid-column: 1; grid-row: 1; }
-    .prayer-strip { padding: 14px 5%; }
-  }
-</style>
-</head>
-<body>
-
-<!-- NAVBAR -->
-<nav id="navbar">
-  <a href="#" class="logo">
-    <div class="logo-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zM4 8v2h1v10h14V10h1V8H4zm3 2h10v8H7v-8z"/><path d="M10 12h4v6h-4z" opacity=".5"/></svg>
-    </div>
-    <div class="logo-text">
-      <span>Al-Ikhlas</span>
-      <span>Islamic Center</span>
-    </div>
-  </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#beranda">Beranda</a></li>
-    <li><a href="#tentang">Tentang</a></li>
-    <li><a href="#layanan">Layanan</a></li>
-    <li><a href="#kegiatan">Kegiatan</a></li>
-    <li><a href="#donasi">Donasi</a></li>
-    <li><a href="#kontak">Kontak</a></li>
-    <li><a href="#donasi" class="btn-donate">Donasi Sekarang</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleNav()">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="beranda">
-  <div class="hero-pattern"></div>
-  <!-- Decorative mosque dome SVG -->
-  <svg class="hero-dome" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="300" cy="480" rx="250" ry="20" fill="rgba(255,255,255,0.1)"/>
-    <rect x="100" y="300" width="400" height="180" rx="4"/>
-    <rect x="60" y="340" width="80" height="140" rx="4"/>
-    <rect x="460" y="340" width="80" height="140" rx="4"/>
-    <path d="M300 50 Q220 160 150 280 h300 Q380 160 300 50z"/>
-    <path d="M130 200 Q100 240 80 300 h100 Q160 240 130 200z"/>
-    <path d="M470 200 Q500 240 520 300 h-100 Q440 240 470 200z"/>
-    <line x1="300" y1="0" x2="300" y2="50" stroke="rgba(255,255,255,0.8)" stroke-width="3"/>
-    <circle cx="300" cy="0" r="6" fill="rgba(255,255,255,0.8)"/>
-    <circle cx="300" cy="14" r="2.5" fill="rgba(255,255,255,0.6)"/>
-    <line x1="130" y1="165" x2="130" y2="200" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-    <circle cx="130" cy="165" r="4" fill="rgba(255,255,255,0.6)"/>
-    <line x1="470" y1="165" x2="470" y2="200" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-    <circle cx="470" cy="165" r="4" fill="rgba(255,255,255,0.6)"/>
-  </svg>
-
-  <div class="hero-content">
-    <div class="hero-badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-      Selamat Datang di Masjid Al-Ikhlas
-    </div>
-    <span class="hero-arabic">الصلاة خير من النوم</span>
-    <h1>Tempat Ibadah &amp; Pusat Komunitas Muslim</h1>
-    <p>Bersama membangun generasi Islam yang berakhlak mulia, berwawasan luas, dan mencintai Al-Quran. Mari bergabung dengan komunitas kami.</p>
-    <div class="hero-btns">
-      <a href="#tentang" class="btn-primary">Jelajahi Lebih</a>
-      <a href="#kegiatan" class="btn-secondary">Lihat Kegiatan</a>
-    </div>
-  </div>
-</section>
-
-<!-- PRAYER TIMES -->
-<div class="prayer-strip">
-  <div class="prayer-strip-inner">
-    <span class="prayer-label">Jadwal Sholat Hari Ini</span>
-    <div class="prayer-times">
-      <div class="prayer-time-item">
-        <span class="name">Subuh</span>
-        <div class="prayer-divider"></div>
-        <span class="time">04:45</span>
-      </div>
-      <div class="prayer-time-item">
-        <span class="name">Dzuhur</span>
-        <div class="prayer-divider"></div>
-        <span class="time">12:05</span>
-      </div>
-      <div class="prayer-time-item">
-        <span class="name">Ashar</span>
-        <div class="prayer-divider"></div>
-        <span class="time">15:20</span>
-      </div>
-      <div class="prayer-time-item">
-        <span class="name">Maghrib</span>
-        <div class="prayer-divider"></div>
-        <span class="time">18:02</span>
-      </div>
-      <div class="prayer-time-item">
-        <span class="name">Isya</span>
-        <div class="prayer-divider"></div>
-        <span class="time">19:15</span>
-      </div>
-    </div>
-    <a href="#kontak" class="btn-primary" style="font-size:13px; padding:10px 22px;">Hubungi Kami</a>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section class="about" id="tentang">
-  <div class="about-grid">
-    <div class="about-img-wrap">
-      <div class="about-img-main">
-        <svg viewBox="0 0 500 375" xmlns="http://www.w3.org/2000/svg" fill="rgba(255,255,255,0.15)">
-          <rect x="50" y="200" width="400" height="175"/>
-          <path d="M250 60 Q190 140 130 240 h240 Q380 140 250 60z"/>
-          <rect x="20" y="230" width="60" height="145" rx="4"/>
-          <rect x="420" y="230" width="60" height="145" rx="4"/>
-          <path d="M80 180 Q60 210 40 250 h60 Q80 210 80 180z"/>
-          <path d="M420 180 Q440 210 460 250 h-60 Q420 210 420 180z"/>
-          <rect x="210" y="280" width="80" height="95"/>
-          <ellipse cx="250" cy="280" rx="40" ry="15"/>
-          <line x1="250" y1="30" x2="250" y2="60" stroke="rgba(201,151,42,0.8)" stroke-width="4"/>
-          <circle cx="250" cy="24" r="8" fill="rgba(201,151,42,0.8)"/>
-          <circle cx="250" cy="38" r="3" fill="rgba(201,151,42,0.6)"/>
-          <path d="M230 100 Q250 130 270 100" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>
-          <path d="M200 150 Q250 190 300 150" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>
-        </svg>
-      </div>
-      <div class="about-stats">
-        <div class="stat-item">
-          <span class="stat-num">15+</span>
-          <span class="stat-lbl">Tahun</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">2K+</span>
-          <span class="stat-lbl">Jamaah</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">48</span>
-          <span class="stat-lbl">Program</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">12</span>
-          <span class="stat-lbl">Ustadz</span>
-        </div>
-      </div>
-    </div>
-    <div class="about-content">
-      <span class="section-tag">Tentang Kami</span>
-      <h2 class="section-title">Masjid yang Menjadi <span>Rumah Semua</span> Umat</h2>
-      <p class="section-desc">Masjid Al-Ikhlas berdiri sejak 2009, menjadi pusat ibadah dan pendidikan Islam yang inklusif bagi seluruh lapisan masyarakat Muslim di kota ini.</p>
-      <div class="about-features">
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18V17h2v-4.5l5 2.73 9-4.91L12 3zm7 13.5c0 1.66-2.24 3-5 3s-5-1.34-5-3 2.24-3 5-3 5 1.34 5 3z"/></svg>
-          </div>
-          <div class="feature-text">
-            <strong>Pendidikan Al-Quran & Islam</strong>
-            <p>Program tahfidz, kajian, dan kelas agama untuk semua usia dari anak-anak hingga dewasa.</p>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-          </div>
-          <div class="feature-text">
-            <strong>Pemberdayaan Komunitas</strong>
-            <p>Program sosial, beasiswa, dan santunan untuk yatim piatu dan dhuafa di sekitar masjid.</p>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </div>
-          <div class="feature-text">
-            <strong>Lokasi Strategis & Fasilitas Lengkap</strong>
-            <p>Gedung masjid modern dengan kapasitas 3000 jamaah, area parkir luas, dan fasilitas difabel.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services" id="layanan">
-  <div class="services-header">
-    <div>
-      <span class="section-tag">Layanan Kami</span>
-      <h2 class="section-title">Program &amp; <span>Kegiatan Rutin</span></h2>
-    </div>
-    <a href="#kontak" class="btn-primary" style="white-space:nowrap;">Lihat Semua</a>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-card-num">01</div>
-      <div class="service-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.61 1.41 4.88 3.5 6.13V17l3.5 2 3.5-2v-1.87C17.59 13.88 19 11.61 19 9c0-3.87-3.13-7-7-7zm-1 13.08V17l1 .57 1-.57v-1.92c-.32.06-.66.1-1 .1s-.68-.04-1-.1zM12 4c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5z"/></svg>
-      </div>
-      <h3>Sholat Berjamaah</h3>
-      <p>Lima waktu sholat berjamaah setiap hari, dengan imam tetap dan muadzin yang berpengalaman.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-card-num">02</div>
-      <div class="service-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-      </div>
-      <h3>Kelas Tahfidz Al-Quran</h3>
-      <p>Program menghafal Al-Quran untuk anak dan remaja dengan metode modern dan pengajar bersertifikat.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-card-num">03</div>
-      <div class="service-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
-      </div>
-      <h3>Kajian Rutin</h3>
-      <p>Kajian Islam setiap pekan oleh ustadz terpercaya, mencakup fiqih, akidah, dan tafsir Al-Quran.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-card-num">04</div>
-      <div class="service-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-      </div>
-      <h3>Santunan Yatim & Dhuafa</h3>
-      <p>Program santunan rutin bulanan bagi anak yatim, janda, dan kaum dhuafa di wilayah sekitar masjid.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-card-num">05</div>
-      <div class="service-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
-      </div>
-      <h3>Peringatan Hari Besar Islam</h3>
-      <p>Penyelenggaraan Isra Miraj, Maulid Nabi, Nuzulul Quran, dan hari besar Islam lainnya.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-card-num">06</div>
-      <div class="service-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-      </div>
-      <h3>Konsultasi & Bimbingan Keluarga</h3>
-      <p>Layanan konsultasi pernikahan, keluarga, dan rohani oleh ustadz dan konselor berpengalaman.</p>
-    </div>
-  </div>
-</section>
-
-<!-- EVENTS -->
-<section class="events" id="kegiatan">
-  <div class="events-header">
-    <div>
-      <span class="section-tag">Kegiatan</span>
-      <h2 class="section-title">Acara &amp; <span>Kegiatan Mendatang</span></h2>
-      <p class="section-desc">Bergabunglah dengan berbagai program dan acara yang kami adakan sepanjang tahun.</p>
-    </div>
-    <a href="#kontak" class="btn-primary">Lihat Semua Acara</a>
-  </div>
-  <div class="events-grid">
-    <div class="event-card">
-      <div class="event-img">
-        <svg viewBox="0 0 200 100"><path d="M100 10 Q70 40 40 70 h120 Q130 40 100 10z"/><rect x="60" y="70" width="80" height="30"/><rect x="30" y="80" width="30" height="20"/><rect x="140" y="80" width="30" height="20"/></svg>
-        <div class="event-date-badge">
-          <span class="day">15</span>
-          <span class="month">Jun</span>
-        </div>
-      </div>
-      <div class="event-info">
-        <div class="event-meta">
-          <span>🕐 08:00 - 12:00</span>
-          <span>📍 Aula Utama</span>
-        </div>
-        <h3>Tabligh Akbar Menyambut Tahun Baru Islam</h3>
-        <p>Ceramah dan dzikir bersama menyambut 1 Muharram bersama ribuan jamaah.</p>
-        <a href="#" class="btn-event">Daftar Sekarang →</a>
-      </div>
-    </div>
-    <div class="event-card">
-      <div class="event-img">
-        <svg viewBox="0 0 200 100"><rect x="30" y="20" width="140" height="80" rx="4"/><rect x="50" y="40" width="100" height="10" rx="2" fill="rgba(201,151,42,0.6)"/><rect x="50" y="58" width="70" height="6" rx="2"/><rect x="50" y="70" width="80" height="6" rx="2"/></svg>
-        <div class="event-date-badge">
-          <span class="day">22</span>
-          <span class="month">Jun</span>
-        </div>
-      </div>
-      <div class="event-info">
-        <div class="event-meta">
-          <span>🕐 13:00 - 16:00</span>
-          <span>📍 Ruang Kelas</span>
-        </div>
-        <h3>Seminar Parenting Islami untuk Orang Tua</h3>
-        <p>Panduan mendidik anak yang sholeh dan sholehah di era digital bersama pakar pendidikan Islam.</p>
-        <a href="#" class="btn-event">Daftar Sekarang →</a>
-      </div>
-    </div>
-    <div class="event-card">
-      <div class="event-img">
-        <svg viewBox="0 0 200 100"><circle cx="100" cy="50" r="35" /><circle cx="100" cy="50" r="25" fill="rgba(0,0,0,0.2)"/><line x1="100" y1="20" x2="100" y2="50" stroke="rgba(201,151,42,0.8)" stroke-width="3"/><line x1="100" y1="50" x2="125" y2="55" stroke="rgba(201,151,42,0.8)" stroke-width="2"/></svg>
-        <div class="event-date-badge">
-          <span class="day">01</span>
-          <span class="month">Jul</span>
-        </div>
-      </div>
-      <div class="event-info">
-        <div class="event-meta">
-          <span>🕐 07:00 - 09:00</span>
-          <span>📍 Lapangan</span>
-        </div>
-        <h3>Wisuda Tahfidz Al-Quran Angkatan VII</h3>
-        <p>Perayaan wisuda santri tahfidz yang telah berhasil menyelesaikan hafalan 30 juz Al-Quran.</p>
-        <a href="#" class="btn-event">Lihat Detail →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DONATION -->
-<section class="donation" id="donasi">
-  <div class="donation-inner">
-    <div class="donation-header">
-      <span class="section-tag">Program Donasi</span>
-      <h2 class="section-title">Bersedekah untuk <span>Kebaikan Bersama</span></h2>
-      <p class="section-desc">Setiap donasi yang Anda berikan akan digunakan untuk program-program bermanfaat bagi umat.</p>
-    </div>
-    <div class="donation-grid">
-      <div class="donation-card">
-        <div class="donation-img" style="background: #1a5c3a;">
-          <svg viewBox="0 0 200 100"><path d="M100 10 Q70 40 40 70 h120 Q130 40 100 10z"/><rect x="70" y="70" width="60" height="30"/><rect x="40" y="80" width="20" height="20"/><rect x="140" y="80" width="20" height="20"/></svg>
-        </div>
-        <div class="donation-body">
-          <h3>Renovasi Masjid Al-Ikhlas</h3>
-          <p>Bantu kami merenovasi masjid agar lebih nyaman dan dapat menampung lebih banyak jamaah.</p>
-          <div class="donation-progress">
-            <div class="progress-bar"><div class="progress-fill" style="width: 65%"></div></div>
-            <div class="progress-labels">
-              <span class="raised">Rp 325 Juta</span>
-              <span class="goal">Target: Rp 500 Juta</span>
-            </div>
-          </div>
-          <a href="#" class="btn-donate-card">Donasi Sekarang</a>
-        </div>
-      </div>
-      <div class="donation-card">
-        <div class="donation-img" style="background: #2e7d52;">
-          <svg viewBox="0 0 200 100"><rect x="20" y="20" width="160" height="80" rx="8"/><rect x="40" y="40" width="120" height="8" rx="4" fill="rgba(255,255,255,0.4)"/><rect x="40" y="56" width="80" height="6" rx="3" fill="rgba(255,255,255,0.2)"/><rect x="40" y="68" width="100" height="6" rx="3" fill="rgba(255,255,255,0.2)"/><circle cx="165" cy="40" r="12" fill="rgba(201,151,42,0.6)"/></svg>
-        </div>
-        <div class="donation-body">
-          <h3>Beasiswa Santri Berprestasi</h3>
-          <p>Dukung pendidikan generasi penerus Islam yang berprestasi namun kurang mampu secara ekonomi.</p>
-          <div class="donation-progress">
-            <div class="progress-bar"><div class="progress-fill" style="width: 42%"></div></div>
-            <div class="progress-labels">
-              <span class="raised">Rp 84 Juta</span>
-              <span class="goal">Target: Rp 200 Juta</span>
-            </div>
-          </div>
-          <a href="#" class="btn-donate-card">Donasi Sekarang</a>
-        </div>
-      </div>
-      <div class="donation-card">
-        <div class="donation-img" style="background: #c9972a;">
-          <svg viewBox="0 0 200 100"><circle cx="80" cy="50" r="25" fill="rgba(255,255,255,0.2)"/><circle cx="120" cy="50" r="25" fill="rgba(255,255,255,0.2)"/><circle cx="100" cy="40" r="25" fill="rgba(255,255,255,0.25)"/></svg>
-        </div>
-        <div class="donation-body">
-          <h3>Santunan Anak Yatim & Dhuafa</h3>
-          <p>Program santunan rutin untuk membantu kebutuhan dasar anak yatim dan keluarga tidak mampu.</p>
-          <div class="donation-progress">
-            <div class="progress-bar"><div class="progress-fill" style="width: 78%"></div></div>
-            <div class="progress-labels">
-              <span class="raised">Rp 156 Juta</span>
-              <span class="goal">Target: Rp 200 Juta</span>
-            </div>
-          </div>
-          <a href="#" class="btn-donate-card">Donasi Sekarang</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="gallery">
-  <div class="gallery-inner">
-    <div class="gallery-header">
-      <span class="section-tag">Galeri</span>
-      <h2 class="section-title">Momen &amp; <span>Kenangan Bersama</span></h2>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item" style="background:#1a5c3a;">
-        <svg viewBox="0 0 300 300"><path d="M150 30 Q100 100 50 200 h200 Q200 100 150 30z" fill="rgba(255,255,255,0.15)"/><rect x="70" y="200" width="160" height="100" fill="rgba(255,255,255,0.1)"/><line x1="150" y1="5" x2="150" y2="30" stroke="rgba(201,151,42,0.8)" stroke-width="5"/><circle cx="150" cy="2" r="7" fill="rgba(201,151,42,0.8)"/></svg>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">+</span></div>
-      </div>
-      <div class="gallery-item" style="background:#2e7d52;">
-        <svg viewBox="0 0 150 150"><circle cx="75" cy="60" r="40" fill="rgba(255,255,255,0.1)"/><rect x="30" y="100" width="90" height="50" fill="rgba(255,255,255,0.1)"/></svg>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">+</span></div>
-      </div>
-      <div class="gallery-item" style="background:#c9972a;">
-        <svg viewBox="0 0 150 150"><rect x="20" y="20" width="110" height="110" rx="8" fill="rgba(255,255,255,0.1)"/><rect x="40" y="45" width="70" height="8" rx="4" fill="rgba(255,255,255,0.3)"/><rect x="40" y="63" width="50" height="6" rx="3" fill="rgba(255,255,255,0.2)"/></svg>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">+</span></div>
-      </div>
-      <div class="gallery-item" style="background:#0d3320;">
-        <svg viewBox="0 0 150 150"><circle cx="75" cy="75" r="50" fill="rgba(201,151,42,0.15)"/><circle cx="75" cy="75" r="35" fill="rgba(201,151,42,0.1)"/><circle cx="75" cy="75" r="5" fill="rgba(201,151,42,0.5)"/></svg>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">+</span></div>
-      </div>
-      <div class="gallery-item" style="background:#4caf7d;">
-        <svg viewBox="0 0 150 150"><polygon points="75,20 130,130 20,130" fill="rgba(255,255,255,0.15)"/></svg>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">+</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="kontak">
-  <div class="contact-inner">
-    <div>
-      <span class="section-tag">Hubungi Kami</span>
-      <h2 class="section-title">Mari <span>Bergabung</span> Bersama Kami</h2>
-      <p class="section-desc">Kami terbuka untuk semua pertanyaan, saran, dan kerjasama. Jangan ragu menghubungi kami.</p>
-      <div class="contact-info-items">
-        <div class="contact-info-item">
-          <div class="contact-info-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <strong>Alamat Masjid</strong>
-            <p>Jl. Masjid Al-Ikhlas No. 77, Kelurahan Bahagia,<br>Kecamatan Sejahtera, Kota Anda 12345</p>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-icon">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <strong>Telepon & WhatsApp</strong>
-            <p>+62 812-3456-7890<br>Senin – Minggu, 07.00 – 21.00 WIB</p>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <strong>Email</strong>
-            <p>info@masjidaliklas.org<br>admin@masjidaliklas.org</p>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-icon">
-            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <strong>Jam Operasional</strong>
-            <p>Setiap hari 05.00 – 22.00 WIB<br>Sholat Jumat: 11.30 WIB</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="contact-form">
-      <h3>Kirim Pesan kepada Kami</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nama Lengkap</label>
-          <input type="text" placeholder="Ahmad Fauzi">
-        </div>
-        <div class="form-group">
-          <label>Nomor HP / WhatsApp</label>
-          <input type="tel" placeholder="+62 812 3456 7890">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Alamat Email</label>
-        <input type="email" placeholder="email@contoh.com">
-      </div>
-      <div class="form-group">
-        <label>Keperluan</label>
-        <select>
-          <option>Informasi Umum</option>
-          <option>Daftar Program Mengaji</option>
-          <option>Informasi Donasi</option>
-          <option>Kerjasama / Sponsorship</option>
-          <option>Konsultasi Agama</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Pesan</label>
-        <textarea placeholder="Tuliskan pesan, pertanyaan, atau informasi yang ingin Anda sampaikan..."></textarea>
-      </div>
-      <button class="btn-send" onclick="handleSend()">Kirim Pesan</button>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
+      @media (max-width: 480px) {
+        section {
+          padding: 60px 5%;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .gallery-item:first-child {
+          grid-column: 1;
+          grid-row: 1;
+        }
+        .prayer-strip {
+          padding: 14px 5%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
       <a href="#" class="logo">
         <div class="logo-icon">
-          <svg viewBox="0 0 24 24" fill="rgba(232,184,75,0.9)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zM4 8v2h1v10h14V10h1V8H4zm3 2h10v8H7v-8z"/><path d="M10 12h4v6h-4z" opacity=".5"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zM4 8v2h1v10h14V10h1V8H4zm3 2h10v8H7v-8z"
+            />
+            <path d="M10 12h4v6h-4z" opacity=".5" />
+          </svg>
         </div>
         <div class="logo-text">
           <span>Al-Ikhlas</span>
           <span>Islamic Center</span>
         </div>
       </a>
-      <p>Masjid Al-Ikhlas adalah rumah ibadah dan pusat pendidikan Islam yang melayani ribuan jamaah dengan penuh keikhlasan dan dedikasi sejak 2009.</p>
-      <div class="footer-socials">
-        <a class="social-btn" href="#" title="Facebook">f</a>
-        <a class="social-btn" href="#" title="Instagram">ig</a>
-        <a class="social-btn" href="#" title="YouTube">yt</a>
-        <a class="social-btn" href="#" title="WhatsApp">wa</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Navigasi</h4>
-      <ul>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#beranda">Beranda</a></li>
-        <li><a href="#tentang">Tentang Kami</a></li>
+        <li><a href="#tentang">Tentang</a></li>
         <li><a href="#layanan">Layanan</a></li>
         <li><a href="#kegiatan">Kegiatan</a></li>
         <li><a href="#donasi">Donasi</a></li>
         <li><a href="#kontak">Kontak</a></li>
+        <li><a href="#donasi" class="btn-donate">Donasi Sekarang</a></li>
       </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+      <div class="hero-pattern"></div>
+      <!-- Decorative mosque dome SVG -->
+      <svg
+        class="hero-dome"
+        viewBox="0 0 600 500"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ellipse
+          cx="300"
+          cy="480"
+          rx="250"
+          ry="20"
+          fill="rgba(255,255,255,0.1)"
+        />
+        <rect x="100" y="300" width="400" height="180" rx="4" />
+        <rect x="60" y="340" width="80" height="140" rx="4" />
+        <rect x="460" y="340" width="80" height="140" rx="4" />
+        <path d="M300 50 Q220 160 150 280 h300 Q380 160 300 50z" />
+        <path d="M130 200 Q100 240 80 300 h100 Q160 240 130 200z" />
+        <path d="M470 200 Q500 240 520 300 h-100 Q440 240 470 200z" />
+        <line
+          x1="300"
+          y1="0"
+          x2="300"
+          y2="50"
+          stroke="rgba(255,255,255,0.8)"
+          stroke-width="3"
+        />
+        <circle cx="300" cy="0" r="6" fill="rgba(255,255,255,0.8)" />
+        <circle cx="300" cy="14" r="2.5" fill="rgba(255,255,255,0.6)" />
+        <line
+          x1="130"
+          y1="165"
+          x2="130"
+          y2="200"
+          stroke="rgba(255,255,255,0.6)"
+          stroke-width="2"
+        />
+        <circle cx="130" cy="165" r="4" fill="rgba(255,255,255,0.6)" />
+        <line
+          x1="470"
+          y1="165"
+          x2="470"
+          y2="200"
+          stroke="rgba(255,255,255,0.6)"
+          stroke-width="2"
+        />
+        <circle cx="470" cy="165" r="4" fill="rgba(255,255,255,0.6)" />
+      </svg>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"
+            />
+          </svg>
+          Selamat Datang di Mushola Daarel Hidayah
+        </div>
+        <span class="hero-arabic">الصلاة خير من النوم</span>
+        <h1>Tempat Ibadah &amp; Pusat Komunitas Muslim</h1>
+        <p>
+          Bersama membangun generasi Islam yang berakhlak mulia, berwawasan
+          luas, dan mencintai Al-Quran. Mari bergabung dengan komunitas kami.
+        </p>
+        <div class="hero-btns">
+          <a href="#tentang" class="btn-primary">Jelajahi Lebih</a>
+          <a href="#kegiatan" class="btn-secondary">Lihat Kegiatan</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRAYER TIMES -->
+    <div class="prayer-strip">
+      <div class="prayer-strip-inner">
+        <span class="prayer-label">Jadwal Sholat Hari Ini</span>
+        <div class="prayer-times">
+          <div class="prayer-time-item">
+            <span class="name">Subuh</span>
+            <div class="prayer-divider"></div>
+            <span class="time">04:45</span>
+          </div>
+          <div class="prayer-time-item">
+            <span class="name">Dzuhur</span>
+            <div class="prayer-divider"></div>
+            <span class="time">12:05</span>
+          </div>
+          <div class="prayer-time-item">
+            <span class="name">Ashar</span>
+            <div class="prayer-divider"></div>
+            <span class="time">15:20</span>
+          </div>
+          <div class="prayer-time-item">
+            <span class="name">Maghrib</span>
+            <div class="prayer-divider"></div>
+            <span class="time">18:02</span>
+          </div>
+          <div class="prayer-time-item">
+            <span class="name">Isya</span>
+            <div class="prayer-divider"></div>
+            <span class="time">19:15</span>
+          </div>
+        </div>
+        <a
+          href="#kontak"
+          class="btn-primary"
+          style="font-size: 13px; padding: 10px 22px"
+          >Hubungi Kami</a
+        >
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Info Masjid</h4>
-      <div class="footer-info-item">
-        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-        Senin–Minggu: 05:00–22:00
+
+    <!-- ABOUT -->
+    <section class="about" id="tentang">
+      <div class="about-grid">
+        <div class="about-img-wrap">
+          <div class="about-img-main">
+            <svg
+              viewBox="0 0 500 375"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="rgba(255,255,255,0.15)"
+            >
+              <rect x="50" y="200" width="400" height="175" />
+              <path d="M250 60 Q190 140 130 240 h240 Q380 140 250 60z" />
+              <rect x="20" y="230" width="60" height="145" rx="4" />
+              <rect x="420" y="230" width="60" height="145" rx="4" />
+              <path d="M80 180 Q60 210 40 250 h60 Q80 210 80 180z" />
+              <path d="M420 180 Q440 210 460 250 h-60 Q420 210 420 180z" />
+              <rect x="210" y="280" width="80" height="95" />
+              <ellipse cx="250" cy="280" rx="40" ry="15" />
+              <line
+                x1="250"
+                y1="30"
+                x2="250"
+                y2="60"
+                stroke="rgba(201,151,42,0.8)"
+                stroke-width="4"
+              />
+              <circle cx="250" cy="24" r="8" fill="rgba(201,151,42,0.8)" />
+              <circle cx="250" cy="38" r="3" fill="rgba(201,151,42,0.6)" />
+              <path
+                d="M230 100 Q250 130 270 100"
+                stroke="rgba(255,255,255,0.3)"
+                stroke-width="2"
+                fill="none"
+              />
+              <path
+                d="M200 150 Q250 190 300 150"
+                stroke="rgba(255,255,255,0.3)"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-num">15+</span>
+              <span class="stat-lbl">Tahun</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">2K+</span>
+              <span class="stat-lbl">Jamaah</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">48</span>
+              <span class="stat-lbl">Program</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">12</span>
+              <span class="stat-lbl">Ustadz</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <span class="section-tag">Tentang Kami</span>
+          <h2 class="section-title">
+            Mushola Daarel Hidayah yang Menjadi <span>Rumah Semua</span> Umat
+          </h2>
+          <p class="section-desc">
+            Mushola Daarel Hidayah berdiri sejak 2009, menjadi pusat ibadah dan
+            pendidikan Islam yang inklusif bagi seluruh lapisan masyarakat
+            Muslim di kota ini.
+          </p>
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 3L1 9l4 2.18V17h2v-4.5l5 2.73 9-4.91L12 3zm7 13.5c0 1.66-2.24 3-5 3s-5-1.34-5-3 2.24-3 5-3 5 1.34 5 3z"
+                  />
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong>Pendidikan Al-Quran & Islam</strong>
+                <p>
+                  Program tahfidz, kajian, dan kelas agama untuk semua usia dari
+                  anak-anak hingga dewasa.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+                  />
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong>Pemberdayaan Komunitas</strong>
+                <p>
+                  Program sosial, beasiswa, dan santunan untuk yatim piatu dan
+                  dhuafa di sekitar masjid.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong>Lokasi Strategis & Fasilitas Lengkap</strong>
+                <p>
+                  Gedung masjid modern dengan kapasitas 3000 jamaah, area parkir
+                  luas, dan fasilitas difabel.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="footer-info-item">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        info@masjidaliklas.org
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="layanan">
+      <div class="services-header">
+        <div>
+          <span class="section-tag">Layanan Kami</span>
+          <h2 class="section-title">
+            Program &amp; <span>Kegiatan Rutin</span>
+          </h2>
+        </div>
+        <a href="#kontak" class="btn-primary" style="white-space: nowrap"
+          >Lihat Semua</a
+        >
       </div>
-      <div class="footer-info-item">
-        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        +62 812-3456-7890
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card-num">01</div>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 2.61 1.41 4.88 3.5 6.13V17l3.5 2 3.5-2v-1.87C17.59 13.88 19 11.61 19 9c0-3.87-3.13-7-7-7zm-1 13.08V17l1 .57 1-.57v-1.92c-.32.06-.66.1-1 .1s-.68-.04-1-.1zM12 4c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5z"
+              />
+            </svg>
+          </div>
+          <h3>Sholat Berjamaah</h3>
+          <p>
+            Lima waktu sholat berjamaah setiap hari, dengan imam tetap dan
+            muadzin yang berpengalaman.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-num">02</div>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"
+              />
+            </svg>
+          </div>
+          <h3>Kelas Tahfidz Al-Quran</h3>
+          <p>
+            Program menghafal Al-Quran untuk anak dan remaja dengan metode
+            modern dan pengajar bersertifikat.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-num">03</div>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"
+              />
+            </svg>
+          </div>
+          <h3>Kajian Rutin</h3>
+          <p>
+            Kajian Islam setiap pekan oleh ustadz terpercaya, mencakup fiqih,
+            akidah, dan tafsir Al-Quran.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-num">04</div>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+              />
+            </svg>
+          </div>
+          <h3>Santunan Yatim & Dhuafa</h3>
+          <p>
+            Program santunan rutin bulanan bagi anak yatim, janda, dan kaum
+            dhuafa di wilayah sekitar masjid.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-num">05</div>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+              />
+            </svg>
+          </div>
+          <h3>Peringatan Hari Besar Islam</h3>
+          <p>
+            Penyelenggaraan Isra Miraj, Maulid Nabi, Nuzulul Quran, dan hari
+            besar Islam lainnya.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-num">06</div>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+              />
+            </svg>
+          </div>
+          <h3>Konsultasi & Bimbingan Keluarga</h3>
+          <p>
+            Layanan konsultasi pernikahan, keluarga, dan rohani oleh ustadz dan
+            konselor berpengalaman.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="footer-col">
-      <h4>Newsletter</h4>
-      <p style="font-size:13px; line-height:1.6; margin-bottom:8px;">Daftar newsletter kami untuk mendapatkan info kegiatan dan kajian terkini.</p>
-      <div class="newsletter-input-wrap">
-        <input type="email" placeholder="Email Anda">
-        <button>Daftar</button>
+    </section>
+
+    <!-- EVENTS -->
+    <section class="events" id="kegiatan">
+      <div class="events-header">
+        <div>
+          <span class="section-tag">Kegiatan</span>
+          <h2 class="section-title">
+            Acara &amp; <span>Kegiatan Mendatang</span>
+          </h2>
+          <p class="section-desc">
+            Bergabunglah dengan berbagai program dan acara yang kami adakan
+            sepanjang tahun.
+          </p>
+        </div>
+        <a href="#kontak" class="btn-primary">Lihat Semua Acara</a>
       </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Masjid Al-Ikhlas Islamic Center. Semua hak cipta dilindungi.</span>
-    <span><a href="#">Kebijakan Privasi</a> · <a href="#">Syarat & Ketentuan</a></span>
-  </div>
-</footer>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-img">
+            <svg viewBox="0 0 200 100">
+              <path d="M100 10 Q70 40 40 70 h120 Q130 40 100 10z" />
+              <rect x="60" y="70" width="80" height="30" />
+              <rect x="30" y="80" width="30" height="20" />
+              <rect x="140" y="80" width="30" height="20" />
+            </svg>
+            <div class="event-date-badge">
+              <span class="day">15</span>
+              <span class="month">Jun</span>
+            </div>
+          </div>
+          <div class="event-info">
+            <div class="event-meta">
+              <span>🕐 08:00 - 12:00</span>
+              <span>📍 Aula Utama</span>
+            </div>
+            <h3>Tabligh Akbar Menyambut Tahun Baru Islam</h3>
+            <p>
+              Ceramah dan dzikir bersama menyambut 1 Muharram bersama ribuan
+              jamaah.
+            </p>
+            <a href="#" class="btn-event">Daftar Sekarang →</a>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-img">
+            <svg viewBox="0 0 200 100">
+              <rect x="30" y="20" width="140" height="80" rx="4" />
+              <rect
+                x="50"
+                y="40"
+                width="100"
+                height="10"
+                rx="2"
+                fill="rgba(201,151,42,0.6)"
+              />
+              <rect x="50" y="58" width="70" height="6" rx="2" />
+              <rect x="50" y="70" width="80" height="6" rx="2" />
+            </svg>
+            <div class="event-date-badge">
+              <span class="day">22</span>
+              <span class="month">Jun</span>
+            </div>
+          </div>
+          <div class="event-info">
+            <div class="event-meta">
+              <span>🕐 13:00 - 16:00</span>
+              <span>📍 Ruang Kelas</span>
+            </div>
+            <h3>Seminar Parenting Islami untuk Orang Tua</h3>
+            <p>
+              Panduan mendidik anak yang sholeh dan sholehah di era digital
+              bersama pakar pendidikan Islam.
+            </p>
+            <a href="#" class="btn-event">Daftar Sekarang →</a>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-img">
+            <svg viewBox="0 0 200 100">
+              <circle cx="100" cy="50" r="35" />
+              <circle cx="100" cy="50" r="25" fill="rgba(0,0,0,0.2)" />
+              <line
+                x1="100"
+                y1="20"
+                x2="100"
+                y2="50"
+                stroke="rgba(201,151,42,0.8)"
+                stroke-width="3"
+              />
+              <line
+                x1="100"
+                y1="50"
+                x2="125"
+                y2="55"
+                stroke="rgba(201,151,42,0.8)"
+                stroke-width="2"
+              />
+            </svg>
+            <div class="event-date-badge">
+              <span class="day">01</span>
+              <span class="month">Jul</span>
+            </div>
+          </div>
+          <div class="event-info">
+            <div class="event-meta">
+              <span>🕐 07:00 - 09:00</span>
+              <span>📍 Lapangan</span>
+            </div>
+            <h3>Wisuda Tahfidz Al-Quran Angkatan VII</h3>
+            <p>
+              Perayaan wisuda santri tahfidz yang telah berhasil menyelesaikan
+              hafalan 30 juz Al-Quran.
+            </p>
+            <a href="#" class="btn-event">Lihat Detail →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- BACK TO TOP -->
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
-</button>
+    <!-- DONATION -->
+    <section class="donation" id="donasi">
+      <div class="donation-inner">
+        <div class="donation-header">
+          <span class="section-tag">Program Donasi</span>
+          <h2 class="section-title">
+            Bersedekah untuk <span>Kebaikan Bersama</span>
+          </h2>
+          <p class="section-desc">
+            Setiap donasi yang Anda berikan akan digunakan untuk program-program
+            bermanfaat bagi umat.
+          </p>
+        </div>
+        <div class="donation-grid">
+          <div class="donation-card">
+            <div class="donation-img" style="background: #1a5c3a">
+              <svg viewBox="0 0 200 100">
+                <path d="M100 10 Q70 40 40 70 h120 Q130 40 100 10z" />
+                <rect x="70" y="70" width="60" height="30" />
+                <rect x="40" y="80" width="20" height="20" />
+                <rect x="140" y="80" width="20" height="20" />
+              </svg>
+            </div>
+            <div class="donation-body">
+              <h3>Renovasi Mushola Daarel Hidayah</h3>
+              <p>
+                Bantu kami merenovasi Mushola Daarel Hidayah agar lebih nyaman dan dapat
+                menampung lebih banyak jamaah.
+              </p>
+              <div class="donation-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 65%"></div>
+                </div>
+                <div class="progress-labels">
+                  <span class="raised">Rp 325 Juta</span>
+                  <span class="goal">Target: Rp 500 Juta</span>
+                </div>
+              </div>
+              <a href="#" class="btn-donate-card">Donasi Sekarang</a>
+            </div>
+          </div>
+          <div class="donation-card">
+            <div class="donation-img" style="background: #2e7d52">
+              <svg viewBox="0 0 200 100">
+                <rect x="20" y="20" width="160" height="80" rx="8" />
+                <rect
+                  x="40"
+                  y="40"
+                  width="120"
+                  height="8"
+                  rx="4"
+                  fill="rgba(255,255,255,0.4)"
+                />
+                <rect
+                  x="40"
+                  y="56"
+                  width="80"
+                  height="6"
+                  rx="3"
+                  fill="rgba(255,255,255,0.2)"
+                />
+                <rect
+                  x="40"
+                  y="68"
+                  width="100"
+                  height="6"
+                  rx="3"
+                  fill="rgba(255,255,255,0.2)"
+                />
+                <circle cx="165" cy="40" r="12" fill="rgba(201,151,42,0.6)" />
+              </svg>
+            </div>
+            <div class="donation-body">
+              <h3>Beasiswa Santri Berprestasi</h3>
+              <p>
+                Dukung pendidikan generasi penerus Islam yang berprestasi namun
+                kurang mampu secara ekonomi.
+              </p>
+              <div class="donation-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 42%"></div>
+                </div>
+                <div class="progress-labels">
+                  <span class="raised">Rp 84 Juta</span>
+                  <span class="goal">Target: Rp 200 Juta</span>
+                </div>
+              </div>
+              <a href="#" class="btn-donate-card">Donasi Sekarang</a>
+            </div>
+          </div>
+          <div class="donation-card">
+            <div class="donation-img" style="background: #c9972a">
+              <svg viewBox="0 0 200 100">
+                <circle cx="80" cy="50" r="25" fill="rgba(255,255,255,0.2)" />
+                <circle cx="120" cy="50" r="25" fill="rgba(255,255,255,0.2)" />
+                <circle cx="100" cy="40" r="25" fill="rgba(255,255,255,0.25)" />
+              </svg>
+            </div>
+            <div class="donation-body">
+              <h3>Santunan Anak Yatim & Dhuafa</h3>
+              <p>
+                Program santunan rutin untuk membantu kebutuhan dasar anak yatim
+                dan keluarga tidak mampu.
+              </p>
+              <div class="donation-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 78%"></div>
+                </div>
+                <div class="progress-labels">
+                  <span class="raised">Rp 156 Juta</span>
+                  <span class="goal">Target: Rp 200 Juta</span>
+                </div>
+              </div>
+              <a href="#" class="btn-donate-card">Donasi Sekarang</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script>
-  // Navbar scroll effect
-  const navbar = document.getElementById('navbar');
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-      backToTop.classList.add('visible');
-    } else {
-      navbar.classList.remove('scrolled');
-      backToTop.classList.remove('visible');
-    }
-  });
+    <!-- GALLERY -->
+    <section class="gallery">
+      <div class="gallery-inner">
+        <div class="gallery-header">
+          <span class="section-tag">Galeri</span>
+          <h2 class="section-title">
+            Momen &amp; <span>Kenangan Bersama</span>
+          </h2>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item" style="background: #1a5c3a">
+            <svg viewBox="0 0 300 300">
+              <path
+                d="M150 30 Q100 100 50 200 h200 Q200 100 150 30z"
+                fill="rgba(255,255,255,0.15)"
+              />
+              <rect
+                x="70"
+                y="200"
+                width="160"
+                height="100"
+                fill="rgba(255,255,255,0.1)"
+              />
+              <line
+                x1="150"
+                y1="5"
+                x2="150"
+                y2="30"
+                stroke="rgba(201,151,42,0.8)"
+                stroke-width="5"
+              />
+              <circle cx="150" cy="2" r="7" fill="rgba(201,151,42,0.8)" />
+            </svg>
+            <div class="gallery-overlay">
+              <span class="gallery-overlay-icon">+</span>
+            </div>
+          </div>
+          <div class="gallery-item" style="background: #2e7d52">
+            <svg viewBox="0 0 150 150">
+              <circle cx="75" cy="60" r="40" fill="rgba(255,255,255,0.1)" />
+              <rect
+                x="30"
+                y="100"
+                width="90"
+                height="50"
+                fill="rgba(255,255,255,0.1)"
+              />
+            </svg>
+            <div class="gallery-overlay">
+              <span class="gallery-overlay-icon">+</span>
+            </div>
+          </div>
+          <div class="gallery-item" style="background: #c9972a">
+            <svg viewBox="0 0 150 150">
+              <rect
+                x="20"
+                y="20"
+                width="110"
+                height="110"
+                rx="8"
+                fill="rgba(255,255,255,0.1)"
+              />
+              <rect
+                x="40"
+                y="45"
+                width="70"
+                height="8"
+                rx="4"
+                fill="rgba(255,255,255,0.3)"
+              />
+              <rect
+                x="40"
+                y="63"
+                width="50"
+                height="6"
+                rx="3"
+                fill="rgba(255,255,255,0.2)"
+              />
+            </svg>
+            <div class="gallery-overlay">
+              <span class="gallery-overlay-icon">+</span>
+            </div>
+          </div>
+          <div class="gallery-item" style="background: #0d3320">
+            <svg viewBox="0 0 150 150">
+              <circle cx="75" cy="75" r="50" fill="rgba(201,151,42,0.15)" />
+              <circle cx="75" cy="75" r="35" fill="rgba(201,151,42,0.1)" />
+              <circle cx="75" cy="75" r="5" fill="rgba(201,151,42,0.5)" />
+            </svg>
+            <div class="gallery-overlay">
+              <span class="gallery-overlay-icon">+</span>
+            </div>
+          </div>
+          <div class="gallery-item" style="background: #4caf7d">
+            <svg viewBox="0 0 150 150">
+              <polygon
+                points="75,20 130,130 20,130"
+                fill="rgba(255,255,255,0.15)"
+              />
+            </svg>
+            <div class="gallery-overlay">
+              <span class="gallery-overlay-icon">+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  // Mobile nav toggle
-  function toggleNav() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
+    <!-- CONTACT -->
+    <section class="contact" id="kontak">
+      <div class="contact-inner">
+        <div>
+          <span class="section-tag">Hubungi Kami</span>
+          <h2 class="section-title">
+            Mari <span>Bergabung</span> Bersama Kami
+          </h2>
+          <p class="section-desc">
+            Kami terbuka untuk semua pertanyaan, saran, dan kerjasama. Jangan
+            ragu menghubungi kami.
+          </p>
+          <div class="contact-info-items">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+              </div>
+              <div class="contact-info-text">
+                <strong>Alamat Muhsola</strong>
+                <p>
+                  Jl. Mushola Daarel Hidayah No. 77, Kelurahan Bahagia,<br />Kecamatan
+                  Sejahtera, Kota Anda 12345
+                </p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+              </div>
+              <div class="contact-info-text">
+                <strong>Telepon & WhatsApp</strong>
+                <p>+62 812-3456-7890<br />Senin – Minggu, 07.00 – 21.00 WIB</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+              </div>
+              <div class="contact-info-text">
+                <strong>Email</strong>
+                <p>info@musholadaarel.org<br />admin@muhsoladaarel.org</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"
+                  />
+                </svg>
+              </div>
+              <div class="contact-info-text">
+                <strong>Jam Operasional</strong>
+                <p>
+                  Setiap hari 05.00 – 22.00 WIB<br />Sholat Jumat: 11.30 WIB
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Kirim Pesan kepada Kami</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nama Lengkap</label>
+              <input type="text" placeholder="Ahmad Fauzi" />
+            </div>
+            <div class="form-group">
+              <label>Nomor HP / WhatsApp</label>
+              <input type="tel" placeholder="+62 812 3456 7890" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Alamat Email</label>
+            <input type="email" placeholder="email@contoh.com" />
+          </div>
+          <div class="form-group">
+            <label>Keperluan</label>
+            <select>
+              <option>Informasi Umum</option>
+              <option>Daftar Program Mengaji</option>
+              <option>Informasi Donasi</option>
+              <option>Kerjasama / Sponsorship</option>
+              <option>Konsultasi Agama</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Pesan</label>
+            <textarea
+              placeholder="Tuliskan pesan, pertanyaan, atau informasi yang ingin Anda sampaikan..."
+            ></textarea>
+          </div>
+          <button class="btn-send" onclick="handleSend()">Kirim Pesan</button>
+        </div>
+      </div>
+    </section>
 
-  // Close nav on link click
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => {
-      document.getElementById('navLinks').classList.remove('open');
-    });
-  });
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="rgba(232,184,75,0.9)"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zM4 8v2h1v10h14V10h1V8H4zm3 2h10v8H7v-8z"
+                />
+                <path d="M10 12h4v6h-4z" opacity=".5" />
+              </svg>
+            </div>
+            <div class="logo-text">
+              <span>Mushola Daarel Hidayah</span>
+              <span>Islamic Center</span>
+            </div>
+          </a>
+          <p>
+            Mushola Daarel Hidayah adalah rumah ibadah dan pusat pendidikan Islam yang
+            melayani ribuan jamaah dengan penuh keikhlasan dan dedikasi sejak
+            2009.
+          </p>
+          <div class="footer-socials">
+            <a class="social-btn" href="#" title="Facebook">f</a>
+            <a class="social-btn" href="#" title="Instagram">ig</a>
+            <a class="social-btn" href="#" title="YouTube">yt</a>
+            <a class="social-btn" href="#" title="WhatsApp">wa</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang Kami</a></li>
+            <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#kegiatan">Kegiatan</a></li>
+            <li><a href="#donasi">Donasi</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Info Mushola</h4>
+          <div class="footer-info-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"
+              />
+            </svg>
+            Senin–Minggu: 05:00–22:00
+          </div>
+          <div class="footer-info-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+              />
+            </svg>
+            info@Musholadaarel.org
+          </div>
+          <div class="footer-info-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+              />
+            </svg>
+            +62 812-3456-7890
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p style="font-size: 13px; line-height: 1.6; margin-bottom: 8px">
+            Daftar newsletter kami untuk mendapatkan info kegiatan dan kajian
+            terkini.
+          </p>
+          <div class="newsletter-input-wrap">
+            <input type="email" placeholder="Email Anda" />
+            <button>Daftar</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span
+          >© 2025 Mushola Daarel Hidayah. Semua hak cipta
+          dilindungi.</span
+        >
+        <span
+          ><a href="#">Kebijakan Privasi</a> ·
+          <a href="#">Syarat & Ketentuan</a></span
+        >
+      </div>
+    </footer>
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
+    <!-- BACK TO TOP -->
+    <button
+      class="back-to-top"
+      id="backToTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <svg viewBox="0 0 24 24">
+        <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+      </svg>
+    </button>
+
+    <script>
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+          backToTop.classList.add("visible");
+        } else {
+          navbar.classList.remove("scrolled");
+          backToTop.classList.remove("visible");
+        }
+      });
+
+      // Mobile nav toggle
+      function toggleNav() {
+        document.getElementById("navLinks").classList.toggle("open");
       }
-    });
-  });
 
-  // Form send handler
-  function handleSend() {
-    alert('Pesan Anda telah terkirim! Kami akan segera menghubungi Anda. Jazakallahu khairan.');
-  }
+      // Close nav on link click
+      document.querySelectorAll(".nav-links a").forEach((a) => {
+        a.addEventListener("click", () => {
+          document.getElementById("navLinks").classList.remove("open");
+        });
+      });
 
-  // Animate elements on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const target = document.querySelector(a.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Form send handler
+      function handleSend() {
+        alert(
+          "Pesan Anda telah terkirim! Kami akan segera menghubungi Anda. Jazakallahu khairan.",
+        );
       }
-    });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.service-card, .event-card, .donation-card, .gallery-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
-</script>
-</body>
+      // Animate elements on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(
+          ".service-card, .event-card, .donation-card, .gallery-item",
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(24px)";
+          el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
 </html>
